@@ -1,0 +1,69 @@
+name: Delroys Suite - CurseForge
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: CurseForge project ID
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: delroys-suite-curseforge
+  cancel-in-progress: false
+jobs:
+  upload:
+    name: Build and submit alpha
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: DelroysSuite
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate and build
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y lua5.1
+          find addons -name '*.lua' -exec luac5.1 -p '{}' +
+          python3 build.py
+      - name: Submit to CurseForge
+        env:
+          CURSEFORGE_PROJECT_ID: ${{ inputs.project_id }}
+          CURSEFORGE_API_TOKEN: ${{ secrets.CURSEFORGE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$CURSEFORGE_PROJECT_ID" =~ ^[1-9][0-9]*$ ]]; then
+            echo 'Enter the numeric CurseForge project ID.'
+            exit 1
+          fi
+          if [[ -z "$CURSEFORGE_API_TOKEN" ]]; then
+            echo 'Configure the CURSEFORGE_API_TOKEN repository secret.'
+            exit 1
+          fi
+          shopt -s nullglob
+          archives=(dist/*.zip)
+          if (( ${#archives[@]} != 1 )); then
+            echo 'Expected exactly one build archive.'
+            exit 1
+          fi
+          response=$(mktemp)
+          trap 'rm -f "$response"' EXIT
+          metadata='{"changelog":"Alpha build for WoW Forever. Includes the suite window, initial setup and optional integration detection.","changelogType":"text","gameVersionNames":["1.60.1"],"releaseType":"alpha","isMarkedForManualRelease":true}'
+          curl --proto '=https' --silent --show-error --fail --max-time 120 \
+            --header "X-Api-Token: $CURSEFORGE_API_TOKEN" \
+            --form-string "metadata=$metadata" \
+            --form "file=@${archives[0]};type=application/zip" \
+            --output "$response" \
+            "https://www.curseforge.com/api/projects/$CURSEFORGE_PROJECT_ID/upload-file"
+          python3 - "$response" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          file_id = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8")).get("id")
+          if type(file_id) is not int or file_id <= 0:
+              raise SystemExit("CurseForge did not return a file ID.")
+          print(f"CurseForge accepted the upload as file {file_id}.")
+          PY
