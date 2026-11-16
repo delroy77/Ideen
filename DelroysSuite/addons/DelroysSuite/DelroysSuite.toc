@@ -1,0 +1,5 @@
+## Interface: 16001
+## Title: Delroys Suite
+## Version: 0.1.0
+## SavedVariables: DelroysSuiteDB
+Core.lua

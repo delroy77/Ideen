@@ -1,0 +1,33 @@
+name: Delroys Suite
+on:
+  push:
+    paths:
+      - 'DelroysSuite/**'
+      - '.github/workflows/delroys-suite.yml'
+  pull_request:
+    paths:
+      - 'DelroysSuite/**'
+      - '.github/workflows/delroys-suite.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: DelroysSuite
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lua compiler
+        run: sudo apt-get update -qq && sudo apt-get install -y lua5.1
+      - name: Check Lua and build ZIP
+        run: |
+          find addons -name '*.lua' -exec luac5.1 -p '{}' +
+          python3 build.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DelroysSuite
+          path: DelroysSuite/dist/*.zip
+          if-no-files-found: error

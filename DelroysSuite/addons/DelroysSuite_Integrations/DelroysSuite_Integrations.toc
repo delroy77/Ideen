@@ -1,0 +1,6 @@
+## Interface: 16001
+## Title: Delroys Suite - Integrationen
+## Version: 0.1.0
+## Dependencies: DelroysSuite
+## LoadOnDemand: 1
+Integrations.lua
