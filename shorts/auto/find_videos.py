@@ -11,10 +11,11 @@ from common import HERE, YTDLP, load, shorts
 
 cfg = load(os.path.join(HERE, "watchlist.json"))
 used = {s.get("source_id") for s in shorts()} | set(load(os.path.join(HERE, "skipped.json"), []))
-games = [g.lower() for g in cfg.get("trending_games", [])]
 now = time.time()
-prio = cfg.get("priority_game")  # {"aliases": [...], "boost": 5, "until": "YYYY-MM-DD"}
 today = time.strftime("%Y-%m-%d")
+# priority_games: [{"aliases": [...], "boost": 5, "from": "YYYY-MM-DD", "until": "YYYY-MM-DD"}]
+prios = [p for p in cfg.get("priority_games", []) if p.get("from", "") <= today <= p["until"]]
+games_all = cfg.get("pinned_games", []) + cfg.get("trending_games", [])
 
 def ids(url, n):
     out = subprocess.run(YTDLP + ["--flat-playlist", "-I", f"1:{n}", "--print", "id", url],
@@ -30,7 +31,7 @@ jobs = {}  # video id -> watchlist channel (or None for search hits)
 for ch in cfg["channels"]:
     for vid in ids(ch["url"], cfg["per_channel"]):
         jobs[vid] = ch
-for g in cfg.get("trending_games", []):
+for g in dict.fromkeys(games_all + [p["aliases"][0] for p in prios]):
     q = urllib.parse.quote_plus(f"{g} streamer")
     for vid in ids(f"https://www.youtube.com/results?search_query={q}&sp=EgQIAxAB", cfg["search_results"]):
         jobs.setdefault(vid, None)
@@ -50,10 +51,11 @@ for vid, d in infos.items():
             or (d.get("language") or "en")[:2] != "en"):
         continue
     text = f"{d['title']} {' '.join(d.get('tags') or [])}".lower()
-    game = next((g for g in cfg.get("trending_games", []) if g.lower() in text), None)
+    game = next((g for g in games_all if g.lower() in text), None)
     score = (d.get("view_count") or 0) / max(age_h, 1) * (1.5 if game else 1)
-    if prio and today <= prio["until"] and any(a.lower() in text for a in prio["aliases"]):
-        game, score = prio["aliases"][0], score * prio["boost"]  # priority game of the week
+    for p in prios:  # priority game of the period
+        if any(a.lower() in text for a in p["aliases"]):
+            game, score = p["aliases"][0], score * p["boost"]
     creator = ch["creator"] if ch else d.get("channel")
     found.append({"id": vid, "url": d["webpage_url"], "creator": creator,
                   "hashtag": ch["hashtag"] if ch else re.sub(r"\W", "", creator or ""),

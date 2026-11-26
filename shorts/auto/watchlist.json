@@ -1,21 +1,39 @@
 {
- "_note": "channels = big English streamers; trending_games = refreshed weekly (WEEKLY.md); search finds viral videos of those games from channels with >= min_followers",
+ "_note": "channels = big English streamers (plus WoW/PoE specialists); pinned_games always count as trending; trending_games refreshed weekly (WEEKLY.md); priority_games get a big boost in their date range",
  "max_age_days": 3,
  "min_minutes": 8,
  "per_channel": 3,
  "min_followers": 1000000,
  "search_results": 15,
- "priority_game": {
-  "aliases": [
-   "GTA 6",
-   "GTA6",
-   "GTA VI",
-   "Grand Theft Auto 6",
-   "Grand Theft Auto VI"
-  ],
-  "boost": 5,
-  "until": "2026-12-06"
- },
+ "priority_games": [
+  {
+   "aliases": [
+    "GTA 6",
+    "GTA6",
+    "GTA VI",
+    "Grand Theft Auto 6",
+    "Grand Theft Auto VI"
+   ],
+   "boost": 5,
+   "from": "2026-11-26",
+   "until": "2026-12-06"
+  },
+  {
+   "aliases": [
+    "Path of Exile 2",
+    "PoE 2",
+    "PoE2",
+    "Path of Exile II"
+   ],
+   "boost": 5,
+   "from": "2026-12-12",
+   "until": "2027-01-15"
+  }
+ ],
+ "pinned_games": [
+  "WoW Forever",
+  "World of Warcraft Forever"
+ ],
  "trending_games": [
   "GTA 6",
   "Fortnite",
@@ -144,6 +162,41 @@
    "creator": "DrDisRespect",
    "hashtag": "DrDisRespect",
    "url": "https://www.youtube.com/@DrDisRespect/videos"
+  },
+  {
+   "creator": "Xaryu",
+   "hashtag": "Xaryu",
+   "url": "https://www.youtube.com/@Xaryu/videos"
+  },
+  {
+   "creator": "Ghazzy",
+   "hashtag": "Ghazzy",
+   "url": "https://www.youtube.com/@GhazzyTV/videos"
+  },
+  {
+   "creator": "Pikaboo",
+   "hashtag": "Pikaboo",
+   "url": "https://www.youtube.com/@Pikabooirl/videos"
+  },
+  {
+   "creator": "Sodapoppin",
+   "hashtag": "Sodapoppin",
+   "url": "https://www.youtube.com/@sodapoppin/videos"
+  },
+  {
+   "creator": "Quin69",
+   "hashtag": "Quin69",
+   "url": "https://www.youtube.com/@Quin69TV/videos"
+  },
+  {
+   "creator": "Fubgun",
+   "hashtag": "Fubgun",
+   "url": "https://www.youtube.com/@Fubgun/videos"
+  },
+  {
+   "creator": "Lolcohol",
+   "hashtag": "Lolcohol",
+   "url": "https://www.youtube.com/@Lolcohol/videos"
   }
  ]
 }

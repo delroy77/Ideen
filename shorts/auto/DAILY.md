@@ -30,7 +30,7 @@ Neue Shorts erstellen, solange `ready` < 3 und `made_today` < 3:
 2. `py auto/shortqueue.py new <id> <url> "<creator>" <hashtag>` → neuer Ordner `NNN`.
 3. `py auto/prepare.py <ordner> <url>` → `src/captions.txt` und `src/heatmap.txt` lesen.
    Keine Untertitel → `py auto/shortqueue.py skip <id>`, Ordner löschen, nächstes Video.
-4. Gibt es in `watchlist.json` ein `priority_game` (bis `until`), haben Videos zu diesem Spiel klar Vorrang: zuerst die nehmen, nur wenn keins taugt, andere.
+4. Ist heute ein Eintrag aus `priority_games` in `watchlist.json` aktiv (`from` bis `until`), haben Videos zu diesem Spiel klar Vorrang: zuerst die nehmen, nur wenn keins taugt, andere.
    1 Story für einen 20–50-s-Short wählen: ein Moment mit Aufbau und Pointe (lustig, Wut, Schock, starke Meinung).
    Heatmap-Spitzen haben Vorrang. Je 3–8 Fenster mit ~2 s Puffer.
    Taugt nichts → `skip`, Ordner löschen, nächstes Video.
