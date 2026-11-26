@@ -9,9 +9,14 @@ from common import YTDLP, load
 folder, url = sys.argv[1:3]
 src = os.path.join(folder, "src")
 os.makedirs(src, exist_ok=True)
-subprocess.run(YTDLP + ["--skip-download", "--write-info-json", "--write-auto-subs", "--write-subs",
-                        "--sub-langs", "en-orig,en", "--sub-format", "json3",
-                        "-o", os.path.join(src, "video.%(ext)s"), url], check=True)
+def fetch(langs):
+    return subprocess.run(YTDLP + ["--skip-download", "--write-info-json", "--write-auto-subs", "--write-subs",
+                                   "--sub-langs", langs, "--sub-format", "json3",
+                                   "-o", os.path.join(src, "video.%(ext)s"), url]).returncode
+
+# one language at a time: asking for "en-orig,en" together often hits HTTP 429 on the translated "en" track
+if fetch("en-orig") and fetch("en"):
+    sys.exit("yt-dlp failed (maybe HTTP 429) - skip this video or retry later")
 
 def hms(t):
     return str(datetime.timedelta(seconds=int(t)))

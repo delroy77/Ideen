@@ -1,0 +1,140 @@
+{
+ "title": "STEAM'S MOST\\NREFUNDED GAME",
+ "title_seconds": 3.5,
+ "creator": "Ludwig",
+ "layout": {
+  "facecam": [
+   1488,
+   780,
+   432,
+   243
+  ],
+  "game": [
+   500,
+   0,
+   920,
+   1080
+  ]
+ },
+ "sources": {
+  "s0": {
+   "video": "src/seg_00.mp4",
+   "words": "src/seg_00.words.json"
+  },
+  "s1": {
+   "video": "src/seg_01.mp4",
+   "words": "src/seg_01.words.json"
+  },
+  "s2": {
+   "video": "src/seg_02.mp4",
+   "words": "src/seg_02.words.json"
+  },
+  "s3": {
+   "video": "src/seg_03.mp4",
+   "words": "src/seg_03.words.json"
+  },
+  "s4": {
+   "video": "src/seg_04.mp4",
+   "words": "src/seg_04.words.json"
+  }
+ },
+ "fixes": {
+  "board": "bored",
+  "co2": "CO2"
+ },
+ "clips": [
+  {
+   "src": "s0",
+   "start": 2.3,
+   "end": 7.25,
+   "layout": "fit",
+   "orig": [
+    18.5,
+    27.0
+   ]
+  },
+  {
+   "src": "s1",
+   "start": 2.0,
+   "end": 4.45,
+   "orig": [
+    144.5,
+    151.0
+   ]
+  },
+  {
+   "src": "s2",
+   "start": 2.6,
+   "end": 7.4,
+   "layout": "fit",
+   "orig": [
+    1115.5,
+    1124.0
+   ]
+  },
+  {
+   "src": "s3",
+   "start": 1.8,
+   "end": 13.4,
+   "orig": [
+    1339.0,
+    1366.0
+   ],
+   "layout": "fit"
+  },
+  {
+   "src": "s3",
+   "start": 17.6,
+   "end": 25.3,
+   "cues": [
+    [
+     17.6,
+     20.2,
+     "Man, I don't like this game"
+    ],
+    [
+     20.2,
+     23.2,
+     "I don't like it. Top to bottom, throw it out"
+    ],
+    [
+     23.2,
+     25.3,
+     "The damn Germans who made this are evil"
+    ]
+   ],
+   "orig": [
+    1339.0,
+    1366.0
+   ],
+   "layout": "fit"
+  },
+  {
+   "src": "s4",
+   "start": 1.6,
+   "end": 9.2,
+   "cues": [
+    [
+     1.6,
+     4.0,
+     "You baby raged and broke your camera"
+    ],
+    [
+     4.0,
+     5.7,
+     "I did not baby rage"
+    ],
+    [
+     5.7,
+     9.2,
+     "I appropriately reacted to stimuli"
+    ]
+   ],
+   "orig": [
+    1372.0,
+    1381.0
+   ],
+   "layout": "fit"
+  }
+ ]
+}

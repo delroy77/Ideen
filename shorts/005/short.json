@@ -1,0 +1,198 @@
+{
+ "title": "TOXIC STREAMER\\NGETS HUMBLED",
+ "title_seconds": 3.5,
+ "creator": "penguinz0",
+ "layout": {
+  "facecam": [
+   0,
+   0,
+   480,
+   270
+  ],
+  "game": [
+   480,
+   0,
+   960,
+   1080
+  ]
+ },
+ "sources": {
+  "s0": {
+   "video": "src/seg_00.mp4",
+   "words": "src/seg_00.words.json"
+  },
+  "s1": {
+   "video": "src/seg_01.mp4",
+   "words": "src/seg_01.words.json"
+  },
+  "s2": {
+   "video": "src/seg_02.mp4",
+   "words": "src/seg_02.words.json"
+  },
+  "s3": {
+   "video": "src/seg_03.mp4",
+   "words": "src/seg_03.words.json"
+  },
+  "s4": {
+   "video": "src/seg_04.mp4",
+   "words": "src/seg_04.words.json"
+  },
+  "s5": {
+   "video": "src/seg_05.mp4",
+   "words": "src/seg_05.words.json"
+  }
+ },
+ "fixes": {},
+ "clips": [
+  {
+   "src": "s0",
+   "start": 2.3,
+   "end": 8.6,
+   "layout": "full",
+   "center_x": 800,
+   "orig": [
+    53.5,
+    65.0
+   ]
+  },
+  {
+   "src": "s1",
+   "start": 4.2,
+   "end": 7.1,
+   "layout": "fit",
+   "orig": [
+    207.5,
+    217.0
+   ]
+  },
+  {
+   "src": "s2",
+   "start": 2.3,
+   "end": 8.75,
+   "layout": "full",
+   "center_x": 760,
+   "orig": [
+    626.5,
+    637.0
+   ]
+  },
+  {
+   "src": "s3",
+   "start": 1.7,
+   "end": 6.3,
+   "layout": "fit",
+   "cues": [
+    [
+     1.7,
+     3.3,
+     "Wait, what the fuck, is he not dead?"
+    ],
+    [
+     3.3,
+     6.3,
+     "He still has like all his health"
+    ]
+   ],
+   "orig": [
+    657.5,
+    676.0
+   ]
+  },
+  {
+   "src": "s3",
+   "start": 14.2,
+   "end": 16.5,
+   "layout": "fit",
+   "orig": [
+    657.5,
+    676.0
+   ]
+  },
+  {
+   "src": "s4",
+   "start": 1.8,
+   "end": 7.2,
+   "layout": "fit",
+   "cues": [
+    [
+     1.8,
+     6.3,
+     "You suck. You fucking suck."
+    ],
+    [
+     6.3,
+     7.2,
+     "How did you just die?"
+    ]
+   ],
+   "orig": [
+    682.5,
+    697.0
+   ]
+  },
+  {
+   "src": "s4",
+   "start": 9.9,
+   "end": 13.1,
+   "layout": "fit",
+   "orig": [
+    682.5,
+    697.0
+   ]
+  },
+  {
+   "src": "s5",
+   "start": 2.1,
+   "end": 9.6,
+   "layout": "fit",
+   "cues": [
+    [
+     2.1,
+     3.2,
+     "Teabag me too?"
+    ],
+    [
+     3.2,
+     5.6,
+     "You're literally cheating!"
+    ],
+    [
+     5.6,
+     9.6,
+     "You're doing the invincible Anakin glitch"
+    ]
+   ],
+   "orig": [
+    856.0,
+    877.0
+   ]
+  },
+  {
+   "src": "s5",
+   "start": 12.2,
+   "end": 18.8,
+   "layout": "fit",
+   "cues": [
+    [
+     12.2,
+     13.9,
+     "And he left the game?"
+    ],
+    [
+     15.4,
+     17.4,
+     "There's no way you feel good about winning that"
+    ],
+    [
+     17.4,
+     18.8,
+     "You really left the game"
+    ]
+   ],
+   "orig": [
+    856.0,
+    877.0
+   ]
+  }
+ ]
+}

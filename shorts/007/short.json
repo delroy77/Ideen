@@ -1,0 +1,157 @@
+{
+ "title": "XQC GOT TRAPPED\\NIN GTA 6",
+ "title_seconds": 3.5,
+ "creator": "xQc",
+ "layout": {
+  "facecam": [
+   0,
+   0,
+   480,
+   270
+  ],
+  "game": [
+   480,
+   0,
+   960,
+   1080
+  ]
+ },
+ "sources": {
+  "s0": {
+   "video": "src/seg_00.mp4",
+   "words": "src/seg_00.words.json"
+  },
+  "s1": {
+   "video": "src/seg_01.mp4",
+   "words": "src/seg_01.words.json"
+  },
+  "s2": {
+   "video": "src/seg_02.mp4",
+   "words": "src/seg_02.words.json"
+  },
+  "s3": {
+   "video": "src/seg_03.mp4",
+   "words": "src/seg_03.words.json"
+  },
+  "s4": {
+   "video": "src/seg_04.mp4",
+   "words": "src/seg_04.words.json"
+  }
+ },
+ "fixes": {},
+ "clips": [
+  {
+   "src": "s0",
+   "start": 2.0,
+   "end": 10.6,
+   "layout": "fit",
+   "cues": [
+    [
+     2.0,
+     5.6,
+     "How do you..."
+    ],
+    [
+     5.6,
+     7.2,
+     "How do you leave it?"
+    ],
+    [
+     7.2,
+     9.0,
+     "How do you leave this?"
+    ],
+    [
+     9.0,
+     10.6,
+     "A few moments later..."
+    ]
+   ],
+   "orig": [
+    318.5,
+    330.0
+   ]
+  },
+  {
+   "src": "s1",
+   "start": 2.2,
+   "end": 3.8,
+   "layout": "fit",
+   "cues": [
+    [
+     2.2,
+     3.8,
+     "Five minutes later..."
+    ]
+   ],
+   "orig": [
+    334.5,
+    340.5
+   ]
+  },
+  {
+   "src": "s2",
+   "start": 1.9,
+   "end": 8.3,
+   "layout": "fit",
+   "orig": [
+    350.0,
+    364.0
+   ]
+  },
+  {
+   "src": "s2",
+   "start": 10.2,
+   "end": 12.4,
+   "layout": "fit",
+   "orig": [
+    350.0,
+    364.0
+   ]
+  },
+  {
+   "src": "s3",
+   "start": 2.0,
+   "end": 4.0,
+   "layout": "fit",
+   "cues": [
+    [
+     2.0,
+     4.0,
+     "One hour later..."
+    ]
+   ],
+   "orig": [
+    385.5,
+    401.5
+   ]
+  },
+  {
+   "src": "s4",
+   "start": 3.5,
+   "end": 5.3,
+   "layout": "fit",
+   "cues": [
+    [
+     3.5,
+     5.3,
+     "Wait... I'm locked"
+    ]
+   ],
+   "orig": [
+    433.0,
+    467.0
+   ]
+  },
+  {
+   "src": "s4",
+   "start": 18.9,
+   "end": 32.6,
+   "layout": "fit",
+   "orig": [
+    433.0,
+    467.0
+   ]
+  }
+ ]
+}
