@@ -3,3 +3,7 @@
 *.mp4
 *.ass
 __pycache__/
+.venv-tts/
+auto/skipped.json
+weekly/
+auto/candidates.json

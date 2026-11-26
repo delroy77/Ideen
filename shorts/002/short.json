@@ -1,0 +1,31 @@
+{
+  "title": "STREAMER MACHEN\\NWOW FOREVER KAPUTT",
+  "title_seconds": 4,
+  "title_y": 260,
+  "sub_size": 72,
+  "tts_dir": "src/tts_noah",
+  "fixes": {"Wow": "WoW"},
+  "sources": {
+    "v": {"video": "src/video.mp4"}
+  },
+  "clips": [
+    {"src": "v", "start": 34.5, "layout": "fit", "tts": "n1", "bed": 0.12, "note": "hook narration over gold bags"},
+    {"src": "v", "start": 28.3, "end": 34.3, "layout": "fit", "note": "streamer: turned off stream",
+     "cues": [[28.3, 30.3, "Gestern hat er seinen Stream ausgemacht"],
+              [30.3, 34.3, "und war mit uns bis 14 Uhr wach"]]},
+    {"src": "v", "start": 107.5, "layout": "fit", "tts": "n2", "bed": 0.12, "note": "what happened"},
+    {"src": "v", "start": 121.0, "end": 127.3, "layout": "fit", "note": "streamer explains loop",
+     "cues": [[121.0, 122.7, "Das machst du jede Stunde"],
+              [122.7, 124.7, "Zum Händler, alles verkaufen"],
+              [124.7, 127.3, "Auktionshaus, Ruhestein zurück, bam"]]},
+    {"src": "v", "start": 128.0, "layout": "fit", "tts": "n3", "bed": 0.12, "note": "streams turned off / problem"},
+    {"src": "v", "start": 44.9, "end": 51.7, "layout": "fit", "note": "50 hours, 10k gold",
+     "cues": [[44.9, 47.9, "Und Bruce Wainard auf seinem Hunter"],
+              [47.9, 50.2, "50 Stunden am Stück AOE-Farming"],
+              [50.2, 51.7, "über 10K Gold gefarmt"]]},
+    {"src": "v", "start": 0.0, "layout": "fit", "tts": "n4", "bed": 0.0, "note": "level 42 motivation"},
+    {"src": "v", "start": 391.5, "layout": "fit", "tts": "n5", "bed": 0.0, "note": "blizzard nerfed it"},
+    {"src": "v", "start": 403.2, "end": 413.0, "layout": "fit", "no_subs": true, "note": "live fix"},
+    {"src": "v", "start": 4.0, "layout": "fit", "tts": "n6", "bed": 0.0, "note": "cta"}
+  ]
+}

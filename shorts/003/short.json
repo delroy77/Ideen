@@ -1,0 +1,197 @@
+{
+ "title": "6 HOURS OF GTA 6\\NIN 60 SECONDS",
+ "title_seconds": 3.5,
+ "layout": {
+  "facecam": [
+   0,
+   170,
+   510,
+   287
+  ],
+  "game": [
+   560,
+   0,
+   880,
+   1080
+  ]
+ },
+ "sources": {
+  "s0": {
+   "video": "src/seg_00.mp4",
+   "words": "src/seg_00.words.json"
+  },
+  "s1": {
+   "video": "src/seg_01.mp4",
+   "words": "src/seg_01.words.json"
+  },
+  "s2": {
+   "video": "src/seg_02.mp4",
+   "words": "src/seg_02.words.json"
+  },
+  "s3": {
+   "video": "src/seg_03.mp4",
+   "words": "src/seg_03.words.json"
+  },
+  "s4": {
+   "video": "src/seg_04.mp4",
+   "words": "src/seg_04.words.json"
+  },
+  "s5": {
+   "video": "src/seg_05.mp4",
+   "words": "src/seg_05.words.json"
+  },
+  "s6": {
+   "video": "src/seg_06.mp4",
+   "words": "src/seg_06.words.json"
+  },
+  "s7": {
+   "video": "src/seg_07.mp4",
+   "words": "src/seg_07.words.json"
+  },
+  "s8": {
+   "video": "src/seg_08.mp4",
+   "words": "src/seg_08.words.json"
+  },
+  "s9": {
+   "video": "src/seg_09.mp4",
+   "words": "src/seg_09.words.json"
+  },
+  "s10": {
+   "video": "src/seg_10.mp4",
+   "words": "src/seg_10.words.json"
+  },
+  "s11": {
+   "video": "src/seg_11.mp4",
+   "words": "src/seg_11.words.json"
+  }
+ },
+ "fixes": {
+  "$4": "$4,000",
+  "$5": "$5,000",
+  "$15": "$15,000",
+  "000": "",
+  "Kaisi": "Kai"
+ },
+ "clips": [
+  {
+   "src": "s0",
+   "start": 2.0,
+   "end": 3.6,
+   "note": "hook: I just lost $4,000",
+   "orig": [
+    2.9,
+    4.5
+   ]
+  },
+  {
+   "src": "s1",
+   "start": 2.0,
+   "end": 6.9,
+   "note": "because I let Kai play 5 minutes",
+   "orig": [
+    19.9,
+    24.8
+   ]
+  },
+  {
+   "src": "s2",
+   "start": 2.0,
+   "end": 6.0,
+   "note": "car didn't let me drive",
+   "orig": [
+    573.9,
+    577.9
+   ]
+  },
+  {
+   "src": "s3",
+   "start": 2.0,
+   "end": 6.0,
+   "note": "not losing $5,000",
+   "orig": [
+    592.3,
+    596.3
+   ]
+  },
+  {
+   "src": "s4",
+   "start": 2.0,
+   "end": 3.9,
+   "note": "got a Ferrari",
+   "orig": [
+    1162.3,
+    1164.2
+   ]
+  },
+  {
+   "src": "s5",
+   "start": 2.0,
+   "end": 7.6,
+   "note": "advanced tracker, can't sell",
+   "orig": [
+    1174.0,
+    1179.6
+   ]
+  },
+  {
+   "src": "s6",
+   "start": 2.0,
+   "end": 7.6,
+   "note": "unlocked my third eye",
+   "orig": [
+    2422.3,
+    2427.9
+   ]
+  },
+  {
+   "src": "s7",
+   "start": 2.0,
+   "end": 6.95,
+   "note": "crash: just when I was talking about third eye",
+   "orig": [
+    2496.95,
+    2501.9
+   ]
+  },
+  {
+   "src": "s8",
+   "start": 2.0,
+   "end": 3.8,
+   "note": "mentally AFK all the time",
+   "orig": [
+    3516.2,
+    3518.0
+   ]
+  },
+  {
+   "src": "s9",
+   "start": 2.0,
+   "end": 8.0,
+   "note": "first bank robbery, I cooked",
+   "orig": [
+    14883.3,
+    14889.3
+   ]
+  },
+  {
+   "src": "s10",
+   "start": 2.0,
+   "end": 11.0,
+   "note": "flying the plane",
+   "orig": [
+    21118.6,
+    21127.6
+   ]
+  },
+  {
+   "src": "s11",
+   "start": 2.0,
+   "end": 5.1,
+   "note": "outro: good progress today",
+   "orig": [
+    21846.7,
+    21849.8
+   ]
+  }
+ ]
+}

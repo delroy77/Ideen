@@ -1,0 +1,108 @@
+{
+ "_note": "channels = big English streamers; trending_games = refreshed weekly (WEEKLY.md); search finds viral videos of those games from channels with >= min_followers",
+ "max_age_days": 3,
+ "min_minutes": 8,
+ "per_channel": 3,
+ "min_followers": 1000000,
+ "search_results": 15,
+ "trending_games": [
+  "GTA 6",
+  "Fortnite",
+  "Minecraft",
+  "Roblox",
+  "Call of Duty Black Ops 7",
+  "Arc Raiders"
+ ],
+ "channels": [
+  {
+   "creator": "Kai Cenat",
+   "hashtag": "KaiCenat",
+   "url": "https://www.youtube.com/@KaiCenat/videos"
+  },
+  {
+   "creator": "IShowSpeed",
+   "hashtag": "IShowSpeed",
+   "url": "https://www.youtube.com/@IShowSpeed/videos"
+  },
+  {
+   "creator": "xQc",
+   "hashtag": "xQc",
+   "url": "https://www.youtube.com/@xQcOW/videos"
+  },
+  {
+   "creator": "Jynxzi",
+   "hashtag": "Jynxzi",
+   "url": "https://www.youtube.com/@Jynxzi/videos"
+  },
+  {
+   "creator": "CaseOh",
+   "hashtag": "CaseOh",
+   "url": "https://www.youtube.com/@caseoh_/videos"
+  },
+  {
+   "creator": "penguinz0",
+   "hashtag": "penguinz0",
+   "url": "https://www.youtube.com/@penguinz0/videos"
+  },
+  {
+   "creator": "Ludwig",
+   "hashtag": "Ludwig",
+   "url": "https://www.youtube.com/@ludwig/videos"
+  },
+  {
+   "creator": "PewDiePie",
+   "hashtag": "PewDiePie",
+   "url": "https://www.youtube.com/@PewDiePie/videos"
+  },
+  {
+   "creator": "Markiplier",
+   "hashtag": "Markiplier",
+   "url": "https://www.youtube.com/@markiplier/videos"
+  },
+  {
+   "creator": "Jacksepticeye",
+   "hashtag": "Jacksepticeye",
+   "url": "https://www.youtube.com/@jacksepticeye/videos"
+  },
+  {
+   "creator": "Agent00",
+   "hashtag": "Agent00",
+   "url": "https://www.youtube.com/@Agent00/videos"
+  },
+  {
+   "creator": "DougDoug",
+   "hashtag": "DougDoug",
+   "url": "https://www.youtube.com/@DougDoug/videos"
+  },
+  {
+   "creator": "TimTheTatman",
+   "hashtag": "TimTheTatman",
+   "url": "https://www.youtube.com/@timthetatman/videos"
+  },
+  {
+   "creator": "shroud",
+   "hashtag": "shroud",
+   "url": "https://www.youtube.com/@shroud/videos"
+  },
+  {
+   "creator": "Valkyrae",
+   "hashtag": "Valkyrae",
+   "url": "https://www.youtube.com/@Valkyrae/videos"
+  },
+  {
+   "creator": "Fanum",
+   "hashtag": "Fanum",
+   "url": "https://www.youtube.com/@Fanum/videos"
+  },
+  {
+   "creator": "Adin Ross",
+   "hashtag": "AdinRoss",
+   "url": "https://www.youtube.com/@AdinRoss/videos"
+  },
+  {
+   "creator": "Asmongold",
+   "hashtag": "Asmongold",
+   "url": "https://www.youtube.com/channel/UCQeRaTukNYft1_6AZPACnog/videos"
+  }
+ ]
+}

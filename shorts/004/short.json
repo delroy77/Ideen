@@ -1,0 +1,389 @@
+{
+ "title": "SPEED VS KAI\\NFIRST TO $1 MILLION",
+ "title_seconds": 4,
+ "title_y": 260,
+ "sub_size": 72,
+ "sources": {
+  "s0": {
+   "video": "src/seg_00.mp4",
+   "words": "src/seg_00.words.json"
+  },
+  "s1": {
+   "video": "src/seg_01.mp4",
+   "words": "src/seg_01.words.json"
+  },
+  "s2": {
+   "video": "src/seg_02.mp4",
+   "words": "src/seg_02.words.json"
+  },
+  "s3": {
+   "video": "src/seg_03.mp4",
+   "words": "src/seg_03.words.json"
+  },
+  "s4": {
+   "video": "src/seg_04.mp4",
+   "words": "src/seg_04.words.json"
+  },
+  "s5": {
+   "video": "src/seg_05.mp4",
+   "words": "src/seg_05.words.json"
+  },
+  "s6": {
+   "video": "src/seg_06.mp4",
+   "words": "src/seg_06.words.json"
+  },
+  "s7": {
+   "video": "src/seg_07.mp4",
+   "words": "src/seg_07.words.json"
+  },
+  "s8": {
+   "video": "src/seg_08.mp4",
+   "words": "src/seg_08.words.json"
+  },
+  "s9": {
+   "video": "src/seg_09.mp4",
+   "words": "src/seg_09.words.json"
+  },
+  "s10": {
+   "video": "src/seg_10.mp4",
+   "words": "src/seg_10.words.json"
+  },
+  "s11": {
+   "video": "src/seg_11.mp4",
+   "words": "src/seg_11.words.json"
+  },
+  "s12": {
+   "video": "src/seg_12.mp4",
+   "words": "src/seg_12.words.json"
+  },
+  "s13": {
+   "video": "src/seg_13.mp4",
+   "words": "src/seg_13.words.json"
+  },
+  "s14": {
+   "video": "src/seg_14.mp4",
+   "words": "src/seg_14.words.json"
+  },
+  "s15": {
+   "video": "src/seg_15.mp4",
+   "words": "src/seg_15.words.json"
+  },
+  "s16": {
+   "video": "src/seg_16.mp4",
+   "words": "src/seg_16.words.json"
+  },
+  "s17": {
+   "video": "src/seg_17.mp4",
+   "words": "src/seg_17.words.json"
+  },
+  "s18": {
+   "video": "src/seg_18.mp4",
+   "words": "src/seg_18.words.json"
+  },
+  "s19": {
+   "video": "src/seg_19.mp4",
+   "words": "src/seg_19.words.json"
+  },
+  "s20": {
+   "video": "src/seg_20.mp4",
+   "words": "src/seg_20.words.json"
+  },
+  "s21": {
+   "video": "src/seg_21.mp4",
+   "words": "src/seg_21.words.json"
+  },
+  "s22": {
+   "video": "src/seg_22.mp4",
+   "words": "src/seg_22.words.json"
+  }
+ },
+ "fixes": {
+  "Thor's": "First",
+  "new": "noob",
+  "game": "gang",
+  "88": "88,000",
+  "000": "",
+  "I'll": "I",
+  "Chad": "Chat"
+ },
+ "clips": [
+  {
+   "src": "s0",
+   "start": 2.0,
+   "end": 8.2,
+   "layout": "fit",
+   "note": "intro: called out on GTA 6 skills",
+   "orig": [
+    185.8,
+    192.0
+   ]
+  },
+  {
+   "src": "s1",
+   "start": 2.0,
+   "end": 8.8,
+   "layout": "fit",
+   "note": "first to a million wins",
+   "orig": [
+    2372.5,
+    2379.3
+   ]
+  },
+  {
+   "src": "s2",
+   "start": 2.0,
+   "end": 3.55,
+   "layout": "fit",
+   "note": "I have no money",
+   "orig": [
+    2464.1,
+    2465.65
+   ]
+  },
+  {
+   "src": "s3",
+   "start": 2.0,
+   "end": 3.95,
+   "layout": "fit",
+   "note": "cops called on me",
+   "orig": [
+    2510.05,
+    2512.0
+   ]
+  },
+  {
+   "src": "s4",
+   "start": 2.0,
+   "end": 4.05,
+   "layout": "fit",
+   "note": "I don't have a car",
+   "orig": [
+    2529.95,
+    2532.0
+   ]
+  },
+  {
+   "src": "s5",
+   "start": 2.0,
+   "end": 8.2,
+   "layout": "fit",
+   "note": "Kai: you're a noob",
+   "orig": [
+    2676.6,
+    2682.8
+   ]
+  },
+  {
+   "src": "s6",
+   "start": 2.0,
+   "end": 6.6,
+   "layout": "fit",
+   "note": "3 2 1 start",
+   "orig": [
+    2946.5,
+    2951.1
+   ]
+  },
+  {
+   "src": "s7",
+   "start": 2.0,
+   "end": 5.9,
+   "layout": "fit",
+   "note": "how much money you got - zero dollars",
+   "orig": [
+    2979.5,
+    2983.4
+   ]
+  },
+  {
+   "src": "s8",
+   "start": 2.0,
+   "end": 4.8,
+   "layout": "fit",
+   "note": "I made 88,000",
+   "orig": [
+    4643.5,
+    4646.3
+   ]
+  },
+  {
+   "src": "s9",
+   "start": 2.0,
+   "end": 4.1,
+   "layout": "fit",
+   "note": "183 thousand dollars chat",
+   "orig": [
+    5348.0,
+    5350.1
+   ]
+  },
+  {
+   "src": "s10",
+   "start": 2.0,
+   "end": 3.2,
+   "layout": "fit",
+   "note": "let's go",
+   "orig": [
+    5354.1,
+    5355.3
+   ]
+  },
+  {
+   "src": "s11",
+   "start": 2.0,
+   "end": 5.7,
+   "layout": "fit",
+   "note": "do I forfeit",
+   "orig": [
+    5738.6,
+    5742.3
+   ]
+  },
+  {
+   "src": "s12",
+   "start": 2.0,
+   "end": 9.4,
+   "layout": "fit",
+   "note": "Kai blue screen",
+   "orig": [
+    7656.25,
+    7663.65
+   ]
+  },
+  {
+   "src": "s13",
+   "start": 2.0,
+   "end": 4.2,
+   "layout": "fit",
+   "note": "I got 290,000",
+   "orig": [
+    7749.45,
+    7751.65
+   ]
+  },
+  {
+   "src": "s14",
+   "start": 2.0,
+   "end": 6.0,
+   "layout": "fit",
+   "note": "517,000",
+   "orig": [
+    10259.5,
+    10263.5
+   ]
+  },
+  {
+   "src": "s15",
+   "start": 2.0,
+   "end": 4.5,
+   "layout": "fit",
+   "note": "left with nothing",
+   "orig": [
+    12603.5,
+    12606.0
+   ]
+  },
+  {
+   "src": "s16",
+   "start": 2.0,
+   "end": 4.9,
+   "layout": "fit",
+   "note": "terrible boats",
+   "orig": [
+    14646.1,
+    14649.0
+   ]
+  },
+  {
+   "src": "s17",
+   "start": 2.0,
+   "end": 6.2,
+   "layout": "fit",
+   "note": "Kai has more money than me",
+   "cues": [
+    [
+     2.0,
+     3.7,
+     "Yo, Kai beat me?"
+    ],
+    [
+     3.7,
+     6.2,
+     "Kai has more money than me right now?"
+    ]
+   ],
+   "orig": [
+    15131.4,
+    15135.6
+   ]
+  },
+  {
+   "src": "s18",
+   "start": 2.0,
+   "end": 3.95,
+   "layout": "fit",
+   "note": "if I die I die",
+   "orig": [
+    15671.05,
+    15673.0
+   ]
+  },
+  {
+   "src": "s19",
+   "start": 2.0,
+   "end": 4.75,
+   "layout": "fit",
+   "note": "you lost this boy",
+   "orig": [
+    15991.95,
+    15994.7
+   ]
+  },
+  {
+   "src": "s20",
+   "start": 2.0,
+   "end": 7.3,
+   "layout": "fit",
+   "note": "Kai robbing the vault",
+   "cues": [
+    [
+     2.0,
+     5.8,
+     "Oh my God, Kai is robbing the vault"
+    ],
+    [
+     5.8,
+     7.3,
+     "3 minutes left though"
+    ]
+   ],
+   "orig": [
+    17130.3,
+    17135.6
+   ]
+  },
+  {
+   "src": "s21",
+   "start": 2.0,
+   "end": 8.7,
+   "layout": "fit",
+   "note": "countdown, yes sir",
+   "orig": [
+    17355.5,
+    17362.2
+   ]
+  },
+  {
+   "src": "s22",
+   "start": 2.0,
+   "end": 3.9,
+   "layout": "fit",
+   "note": "we have won the 1 million challenge",
+   "orig": [
+    17436.2,
+    17438.1
+   ]
+  }
+ ],
+ "creator": "IShowSpeed"
+}

@@ -1,7 +1,7 @@
 """Transcribe windows of a video with word timestamps.
 Usage: py transcribe.py <video> <out.json> start-end [start-end ...]   (seconds)
 """
-import json, subprocess, sys
+import json, os, subprocess, sys
 import numpy as np
 from faster_whisper import WhisperModel
 
@@ -15,7 +15,7 @@ for w in wins:
                           "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
                          capture_output=True, check=True).stdout
     audio = np.frombuffer(raw, np.float32)
-    segs, _ = model.transcribe(audio, language="en", word_timestamps=True,
+    segs, _ = model.transcribe(audio, language=os.environ.get("WHISPER_LANG") or None, word_timestamps=True,
                                condition_on_previous_text=False)
     words = [(round(x.start + a, 2), round(x.end + a, 2), x.word.strip())
              for s in segs for x in (s.words or [])]

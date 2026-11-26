@@ -1,0 +1,64 @@
+"""List new viral videos that have no short yet, best first.
+Usage: py auto/find_videos.py   -> writes auto/candidates.json (best first) and prints a summary (~5 min)
+Sources (auto/watchlist.json):
+  channels         latest uploads of big English streamers
+  trending_games   YouTube search "<game> streamer" (this week), only channels with >= min_followers
+Score = views per hour since upload; trending games get x1.5. Skipped ids live in auto/skipped.json.
+"""
+import json, os, re, subprocess, sys, time, urllib.parse
+from concurrent.futures import ThreadPoolExecutor
+from common import HERE, YTDLP, load, shorts
+
+cfg = load(os.path.join(HERE, "watchlist.json"))
+used = {s.get("source_id") for s in shorts()} | set(load(os.path.join(HERE, "skipped.json"), []))
+games = [g.lower() for g in cfg.get("trending_games", [])]
+now = time.time()
+
+def ids(url, n):
+    out = subprocess.run(YTDLP + ["--flat-playlist", "-I", f"1:{n}", "--print", "id", url],
+                         capture_output=True, text=True).stdout.split()
+    return [i for i in out if i not in used]
+
+def info(vid):
+    r = subprocess.run(YTDLP + ["-j", "--skip-download", f"https://www.youtube.com/watch?v={vid}"],
+                       capture_output=True, text=True, encoding="utf-8")
+    return json.loads(r.stdout) if r.returncode == 0 else None
+
+jobs = {}  # video id -> watchlist channel (or None for search hits)
+for ch in cfg["channels"]:
+    for vid in ids(ch["url"], cfg["per_channel"]):
+        jobs[vid] = ch
+for g in cfg.get("trending_games", []):
+    q = urllib.parse.quote_plus(f"{g} streamer")
+    for vid in ids(f"https://www.youtube.com/results?search_query={q}&sp=EgQIAxAB", cfg["search_results"]):
+        jobs.setdefault(vid, None)
+
+with ThreadPoolExecutor(8) as ex:
+    infos = dict(zip(jobs, ex.map(info, jobs)))
+
+found = []
+for vid, d in infos.items():
+    if not d:
+        continue
+    ch = jobs[vid]
+    age_h = (now - (d.get("timestamp") or now)) / 3600
+    if (d.get("live_status") in ("is_live", "is_upcoming") or age_h > cfg["max_age_days"] * 24
+            or (d.get("duration") or 0) < cfg["min_minutes"] * 60
+            or (ch is None and (d.get("channel_follower_count") or 0) < cfg["min_followers"])
+            or (d.get("language") or "en")[:2] != "en"):
+        continue
+    text = f"{d['title']} {' '.join(d.get('tags') or [])}".lower()
+    game = next((g for g in cfg.get("trending_games", []) if g.lower() in text), None)
+    score = (d.get("view_count") or 0) / max(age_h, 1) * (1.5 if game else 1)
+    creator = ch["creator"] if ch else d.get("channel")
+    found.append({"id": vid, "url": d["webpage_url"], "creator": creator,
+                  "hashtag": ch["hashtag"] if ch else re.sub(r"\W", "", creator or ""),
+                  "game": game, "title": d["title"], "minutes": round(d["duration"] / 60), "age_h": round(age_h),
+                  "views": d.get("view_count"), "followers": d.get("channel_follower_count"),
+                  "score": round(score), "heatmap": bool(d.get("heatmap")), "age_limit": d.get("age_limit", 0)})
+found.sort(key=lambda x: -x["score"])
+json.dump(found, open(os.path.join(HERE, "candidates.json"), "w", encoding="utf-8"), indent=1, ensure_ascii=False)
+sys.stdout.reconfigure(encoding="utf-8")
+for x in found[:15]:
+    print(f"{x['score']:>8} {x['creator']:<16} {x['game'] or '-':<12} {x['minutes']:>3}min {x['age_h']:>3}h  {x['title'][:60]}")
+print(len(found), "candidates -> auto/candidates.json")
