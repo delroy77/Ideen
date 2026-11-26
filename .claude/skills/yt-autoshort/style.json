@@ -1,0 +1,52 @@
+{
+  "_comment": "Stilvorlage fuer /yt-autoshort. Alle Shorts folgen diesen Werten, solange der Nutzer pro Video nichts anderes sagt.",
+
+  "language": "de",
+  "topics": ["Fakten & Wissen", "Psychologie", "Natur & Tiere", "Technik", "Geschichte"],
+  "tone": "locker, neugierig, du-Ansprache, kurze Saetze, keine Floskeln",
+
+  "voice": "de-DE-ConradNeural",
+  "voice_alternatives": ["de-DE-KillianNeural", "de-DE-FlorianMultilingualNeural", "de-DE-SeraphinaMultilingualNeural", "de-DE-KatjaNeural"],
+  "voice_rate": "+10%",
+
+  "target_seconds": 35,
+  "max_seconds": 58,
+  "scenes_min": 4,
+  "scenes_max": 7,
+
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+
+  "captions": {
+    "font": "Inter Black",
+    "size": 96,
+    "words_per_chunk": 3,
+    "color": "&H00FFFFFF",
+    "highlight_color": "&H0000E5FF",
+    "outline_color": "&H00000000",
+    "outline": 7,
+    "position_y": 1180,
+    "uppercase": true
+  },
+
+  "hook_overlay": {
+    "enabled": true,
+    "seconds": 2.2,
+    "size": 92,
+    "position_y": 330,
+    "box_color": "&H40000000"
+  },
+
+  "darken_clips": 0.18,
+  "loudness_lufs": -14,
+
+  "upload": {
+    "privacy": "public",
+    "category_id": "27",
+    "made_for_kids": false,
+    "hashtags": ["#shorts", "#fakten", "#wissen"],
+    "description_footer": "Clips: Pixabay (pixabay.com) · Stimme: KI-Sprachausgabe",
+    "auto_upload": true
+  }
+}

@@ -30,3 +30,12 @@ curl -s -X POST $B/tool_router/session/$SID/execute -H "x-api-key: proxy-injecte
 ```
 
 Vor jedem Upload: Titel/Beschreibung/Sichtbarkeit mit dem Nutzer bestätigen.
+
+## Automatische Shorts: `/yt-autoshort`
+
+Thema rein, fertiger Short raus: Skript (Hook geprüft) → Edge-TTS-Stimme → Pixabay-Clips → Untertitel
+Wort für Wort → Qualitätsprüfung → Upload über Composio. Kostenlos.
+
+- Stilvorlage: `.claude/skills/yt-autoshort/style.json` (Sprache, Stimme, Länge, Untertitel-Look, Upload).
+- Braucht die Umgebung „Ideen“ und dort die Umgebungsvariable `PIXABAY_API_KEY`.
+- Pro Session einmal: `pip install -q edge-tts`.
