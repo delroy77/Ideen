@@ -1,0 +1,5 @@
+# Videos, downloads and generated files stay local
+*/src/
+*.mp4
+*.ass
+__pycache__/

@@ -1,0 +1,23 @@
+{
+  "title": "HE GOT THE WORST\\NGTA 6 ENDING",
+  "title_seconds": 3.5,
+  "layout": {
+    "facecam": [0, 432, 392, 220],
+    "game": [565, 60, 790, 960]
+  },
+  "sources": {
+    "a": {"video": "src/seg_25080.mp4", "words": "src/words_a.json"},
+    "b": {"video": "src/seg_25820.mp4", "words": "src/words_b.json"}
+  },
+  "fixes": {"cow": "Cal", "gta": "GTA", "check": "chat", "Wrong": "", "camera!": ""},
+  "clips": [
+    {"src": "a", "start": 20.3, "end": 28.0, "note": "hook: he's gone - OMG"},
+    {"src": "a", "start": 275.1, "end": 283.6, "note": "worst ending"},
+    {"src": "a", "start": 293.0, "end": 299.2, "note": "y'all ain't tell me"},
+    {"src": "a", "start": 316.4, "end": 318.95, "note": "didn't have to kill him"},
+    {"src": "a", "start": 338.1, "end": 341.3, "note": "don't want to be Cal"},
+    {"src": "a", "start": 393.0, "end": 402.7, "note": "love is so beautiful"},
+    {"src": "b", "start": 18.3, "end": 22.4, "layout": "full", "center_x": 860, "note": "if I had to rate GTA 6"},
+    {"src": "b", "start": 29.4, "end": 33.6, "layout": "full", "center_x": 860, "note": "8.8"}
+  ]
+}
