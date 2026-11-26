@@ -5,6 +5,17 @@
  "per_channel": 3,
  "min_followers": 1000000,
  "search_results": 15,
+ "priority_game": {
+  "aliases": [
+   "GTA 6",
+   "GTA6",
+   "GTA VI",
+   "Grand Theft Auto 6",
+   "Grand Theft Auto VI"
+  ],
+  "boost": 5,
+  "until": "2026-11-29"
+ },
  "trending_games": [
   "GTA 6",
   "Fortnite",
@@ -103,6 +114,36 @@
    "creator": "Asmongold",
    "hashtag": "Asmongold",
    "url": "https://www.youtube.com/channel/UCQeRaTukNYft1_6AZPACnog/videos"
+  },
+  {
+   "creator": "LIRIK",
+   "hashtag": "LIRIK",
+   "url": "https://www.youtube.com/@LIRIK/videos"
+  },
+  {
+   "creator": "Kai Cenat",
+   "hashtag": "KaiCenat",
+   "url": "https://www.youtube.com/@KaiCenatLive/videos"
+  },
+  {
+   "creator": "Sykkuno",
+   "hashtag": "Sykkuno",
+   "url": "https://www.youtube.com/@Sykkuno/videos"
+  },
+  {
+   "creator": "summit1g",
+   "hashtag": "summit1g",
+   "url": "https://www.youtube.com/@summit1g/videos"
+  },
+  {
+   "creator": "HasanAbi",
+   "hashtag": "HasanAbi",
+   "url": "https://www.youtube.com/@HasanAbi/videos"
+  },
+  {
+   "creator": "DrDisRespect",
+   "hashtag": "DrDisRespect",
+   "url": "https://www.youtube.com/@DrDisRespect/videos"
   }
  ]
 }

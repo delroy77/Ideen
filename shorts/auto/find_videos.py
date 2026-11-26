@@ -13,6 +13,8 @@ cfg = load(os.path.join(HERE, "watchlist.json"))
 used = {s.get("source_id") for s in shorts()} | set(load(os.path.join(HERE, "skipped.json"), []))
 games = [g.lower() for g in cfg.get("trending_games", [])]
 now = time.time()
+prio = cfg.get("priority_game")  # {"aliases": [...], "boost": 5, "until": "YYYY-MM-DD"}
+today = time.strftime("%Y-%m-%d")
 
 def ids(url, n):
     out = subprocess.run(YTDLP + ["--flat-playlist", "-I", f"1:{n}", "--print", "id", url],
@@ -50,6 +52,8 @@ for vid, d in infos.items():
     text = f"{d['title']} {' '.join(d.get('tags') or [])}".lower()
     game = next((g for g in cfg.get("trending_games", []) if g.lower() in text), None)
     score = (d.get("view_count") or 0) / max(age_h, 1) * (1.5 if game else 1)
+    if prio and today <= prio["until"] and any(a.lower() in text for a in prio["aliases"]):
+        game, score = prio["aliases"][0], score * prio["boost"]  # priority game of the week
     creator = ch["creator"] if ch else d.get("channel")
     found.append({"id": vid, "url": d["webpage_url"], "creator": creator,
                   "hashtag": ch["hashtag"] if ch else re.sub(r"\W", "", creator or ""),
