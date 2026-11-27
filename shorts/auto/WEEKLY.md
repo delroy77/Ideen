@@ -13,3 +13,7 @@ Arbeitsordner `X:\Claude\shorts`. Läuft ohne Rückfragen. Ziel: lange Videos br
    - Tags/Hashtags: alle Creator, die Spiele, #Compilation #Reaction.
 5. Danach in jeder `meta.json` der verwendeten Shorts `compilation=<datum>` setzen (`py auto/shortqueue.py set <ordner> compilation=<datum>`).
 6. **Trends auffrischen** (auch wenn die Compilation ausfällt): per Websuche (z. B. Twitch-/YouTube-Gaming-Charts der Woche) die 5–8 meistgestreamten bzw. viralsten Spiele bestimmen und `trending_games` in `auto/watchlist.json` ersetzen. `pinned_games` und `priority_games` NICHT ändern. Große englische Streamer (≥ 1 Mio. Abos), die diese Woche viral gingen und noch fehlen, in `channels` aufnehmen (Handle vorher mit `py -m yt_dlp --flat-playlist -I 1:1 --print title <url>` prüfen). Im Bericht nennen, was sich geändert hat.
+7. **poe2-mcp aktuell halten** (wichtig ab PoE 2 1.0, Launch am 11.12.2026): `py -m pip install --upgrade poe2-mcp`.
+   Danach mit den Tools `check_for_updates` und `check_tree_freshness` des MCP-Servers `poe2-optimizer` prüfen, ob die Spieldaten zum aktuellen Patch passen.
+   Das Ergebnis steht im Bericht. Wenn die Daten veraltet sind, gilt der Hinweis: `poe2-optimizer` nur für Builds nutzen, nicht für Mechaniken.
+   Neue Version installiert? Dann wirkt sie erst in der nächsten Session.

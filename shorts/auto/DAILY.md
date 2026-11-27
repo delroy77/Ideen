@@ -31,6 +31,8 @@ Neue Shorts erstellen, solange `ready` < 3 und `made_today` < 3:
 3. `py auto/prepare.py <ordner> <url>` → `src/captions.txt` und `src/heatmap.txt` lesen.
    Keine Untertitel → `py auto/shortqueue.py skip <id>`, Ordner löschen, nächstes Video.
 4. Ist heute ein Eintrag aus `priority_games` in `watchlist.json` aktiv (`from` bis `until`), haben Videos zu diesem Spiel klar Vorrang: zuerst die nehmen, nur wenn keins taugt, andere.
+   **Patchnotes (z. B. PoE 2 1.0):** Reaktionen von Streamern auf Patchnotes, Nerfs und Buffs sind Top-Stoff. Die Story ist dann *eine* Änderung plus die Reaktion des Streamers darauf (Schock, Wut, Jubel).
+   Im Titel die Änderung nennen, z. B. „ZIZARAN SEES THE\NMONK NERF“. Die Änderung selbst als Untertitel-Cue einblenden, wenn sie im Video nur vorgelesen wird.
    1 Story für einen 20–50-s-Short wählen: ein Moment mit Aufbau und Pointe (lustig, Wut, Schock, starke Meinung).
    Heatmap-Spitzen haben Vorrang. Je 3–8 Fenster mit ~2 s Puffer.
    Taugt nichts → `skip`, Ordner löschen, nächstes Video.

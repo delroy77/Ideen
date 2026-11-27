@@ -4,8 +4,9 @@ Usage: py auto/build_info.py <folder> [pob-url]
   pob-url  optional, e.g. a link the streamer showed on screen; otherwise links are taken from the description
 Supported links: pobb.in, maxroll.gg/poe/pob, pastebin.com. Prints the overlay line for short.json "info".
 Exit code 1 = no readable build (then skip the info overlay).
+From the PoE 2 launch date ("launch" in watchlist.json priority_games) on, PoE 2 builds from older videos are skipped.
 """
-import base64, json, os, re, sys, urllib.request, zlib
+import base64, json, os, re, sys, time, urllib.request, zlib
 
 UA = {"User-Agent": "Mozilla/5.0"}
 PATTERNS = [  # (regex on description, raw-code url)
@@ -66,14 +67,26 @@ def overlay(d):
         bits.append(short_num(pool) + (" ES" if d["energy_shield"] > d["life"] else " LIFE"))
     return (top + (r"\N" + " · ".join(bits) if bits else "")).upper()
 
+def poe2_launch():
+    """Launch date ("launch" in the PoE 2 priority_games entry): PoE 2 builds from videos before it are outdated."""
+    cfg = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "watchlist.json"), encoding="utf-8"))
+    return next((p["launch"] for p in cfg.get("priority_games", []) if "launch" in p and "PoE2" in p["aliases"]), "")
+
 def main(folder, url=None):
-    text = url or json.load(open(os.path.join(folder, "src", "video.info.json"), encoding="utf-8")).get("description", "")
+    info = json.load(open(os.path.join(folder, "src", "video.info.json"), encoding="utf-8"))
+    text = url or info.get("description", "")
+    launch, today = poe2_launch(), time.strftime("%Y-%m-%d")
+    up = info.get("upload_date", "")
+    uploaded = f"{up[:4]}-{up[4:6]}-{up[6:]}" if len(up) == 8 else ""
     for rx, raw in PATTERNS:
         for m in re.finditer(rx, text):
             try:
                 d = parse(decode(fetch(raw.format(m.group(1)))))
             except Exception as e:
                 print("skip", m.group(0), e, file=sys.stderr)
+                continue
+            if d["game"] == "poe2" and launch and today >= launch and uploaded and uploaded < launch:
+                print("skip", m.group(0), f"PoE 2 build from {uploaded}, before the {launch} launch", file=sys.stderr)
                 continue
             d["source"] = m.group(0)
             d["overlay"] = overlay(d)

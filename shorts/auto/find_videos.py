@@ -13,7 +13,9 @@ cfg = load(os.path.join(HERE, "watchlist.json"))
 used = {s.get("source_id") for s in shorts()} | set(load(os.path.join(HERE, "skipped.json"), []))
 now = time.time()
 today = time.strftime("%Y-%m-%d")
-# priority_games: [{"aliases": [...], "boost": 5, "from": "YYYY-MM-DD", "until": "YYYY-MM-DD"}]
+# priority_games: [{"aliases": [...], "boost": 5, "from": "YYYY-MM-DD", "until": "YYYY-MM-DD",
+#   optional: "searches": [extra YouTube queries], "hot_words": [...] + "hot_boost": x (e.g. patch notes),
+#             "min_followers": lower bar for search hits about this game (niche streamers)}]
 prios = [p for p in cfg.get("priority_games", []) if p.get("from", "") <= today <= p["until"]]
 games_all = cfg.get("pinned_games", []) + cfg.get("trending_games", [])
 
@@ -31,8 +33,10 @@ jobs = {}  # video id -> watchlist channel (or None for search hits)
 for ch in cfg["channels"]:
     for vid in ids(ch["url"], cfg["per_channel"]):
         jobs[vid] = ch
-for g in dict.fromkeys(games_all + [p["aliases"][0] for p in prios]):
-    q = urllib.parse.quote_plus(f"{g} streamer")
+queries = [f"{g} streamer" for g in games_all + [p["aliases"][0] for p in prios]]
+queries += [q for p in prios for q in p.get("searches", [])]
+for q in dict.fromkeys(queries):
+    q = urllib.parse.quote_plus(q)
     for vid in ids(f"https://www.youtube.com/results?search_query={q}&sp=EgQIAxAB", cfg["search_results"]):
         jobs.setdefault(vid, None)
 
@@ -45,17 +49,20 @@ for vid, d in infos.items():
         continue
     ch = jobs[vid]
     age_h = (now - (d.get("timestamp") or now)) / 3600
+    text = f"{d['title']} {' '.join(d.get('tags') or [])}".lower()
+    hit = [p for p in prios if any(a.lower() in text for a in p["aliases"])]
+    min_f = min([cfg["min_followers"]] + [p.get("min_followers", cfg["min_followers"]) for p in hit])
     if (d.get("live_status") in ("is_live", "is_upcoming") or age_h > cfg["max_age_days"] * 24
             or (d.get("duration") or 0) < cfg["min_minutes"] * 60
-            or (ch is None and (d.get("channel_follower_count") or 0) < cfg["min_followers"])
+            or (ch is None and (d.get("channel_follower_count") or 0) < min_f)
             or (d.get("language") or "en")[:2] != "en"):
         continue
-    text = f"{d['title']} {' '.join(d.get('tags') or [])}".lower()
     game = next((g for g in games_all if g.lower() in text), None)
     score = (d.get("view_count") or 0) / max(age_h, 1) * (1.5 if game else 1)
-    for p in prios:  # priority game of the period
-        if any(a.lower() in text for a in p["aliases"]):
-            game, score = p["aliases"][0], score * p["boost"]
+    for p in hit:  # priority game of the period
+        game, score = p["aliases"][0], score * p["boost"]
+        if any(w.lower() in text for w in p.get("hot_words", [])):
+            score *= p.get("hot_boost", 1)
     creator = ch["creator"] if ch else d.get("channel")
     found.append({"id": vid, "url": d["webpage_url"], "creator": creator,
                   "hashtag": ch["hashtag"] if ch else re.sub(r"\W", "", creator or ""),

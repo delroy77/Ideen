@@ -26,8 +26,22 @@
     "Path of Exile II"
    ],
    "boost": 5,
-   "from": "2026-12-12",
-   "until": "2027-01-15"
+   "from": "2026-12-03",
+   "until": "2027-01-15",
+   "launch": "2026-12-11",
+   "min_followers": 100000,
+   "searches": [
+    "Path of Exile 2 1.0 patch notes",
+    "Path of Exile 2 1.0 launch reaction"
+   ],
+   "hot_words": [
+    "patch notes",
+    "1.0",
+    "launch",
+    "nerf",
+    "buff"
+   ],
+   "hot_boost": 2
   }
  ],
  "pinned_games": [
