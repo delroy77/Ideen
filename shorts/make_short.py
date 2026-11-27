@@ -8,6 +8,7 @@ Clip fields:
   bed                    volume of the original audio under tts (default 0 = muted)
   cues                   [[start, end, "text"], ...] manual subtitles in source time (e.g. translations)
   creator                name shown for 5 s whenever it changes (top-level default, per clip override)
+Top-level "info" (+ info_at, info_seconds, info_y): yellow build box, e.g. from auto/build_info.py.
 Word files come from transcribe.py / tts.py.
 """
 import json, os, re, subprocess, sys
@@ -94,6 +95,10 @@ def build_ass(cfg, clip_words):
             b = min(a + CREATOR_SECONDS, names[i + 1][0] if i + 1 < len(names) else off)
             lines.append(f"Dialogue: 1,{ts(a)},{ts(b)},Creator,,0,0,0,,"
                          + r"{\an5\pos(540,%d)}" % cfg.get("creator_y", 1780) + who.upper())
+    if cfg.get("info"):  # build box (PoE: auto/build_info.py), after the creator tag
+        a = cfg.get("info_at", CREATOR_SECONDS)
+        lines.append(f"Dialogue: 1,{ts(a)},{ts(min(a + cfg.get('info_seconds', 6), off))},Info,,0,0,0,,"
+                     + r"{\an5\pos(540,%d)}" % cfg.get("info_y", 1700) + cfg["info"])
     if cfg.get("title"):
         y = cfg.get("title_y", 90)
         lines.append(f"Dialogue: 1,{ts(0)},{ts(cfg['title_seconds'])},Title,,0,0,0,,"
@@ -109,6 +114,7 @@ Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour,
 Style: Sub,Arial Black,{cfg.get('sub_size', 78)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,7,3,5,60,60,0,1
 Style: Title,Arial Black,72,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,3,18,0,8,60,60,90,1
 Style: Creator,Arial Black,54,&H00FFFFFF,&H00FFFFFF,&H30000000,&H00000000,1,0,0,0,100,100,2,0,3,14,0,5,60,60,0,1
+Style: Info,Arial Black,46,&H0000E5FF,&H0000E5FF,&H40000000,&H00000000,1,0,0,0,100,100,1,0,3,14,0,5,60,60,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text

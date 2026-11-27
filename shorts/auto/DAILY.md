@@ -41,10 +41,15 @@ Neue Shorts erstellen, solange `ready` < 3 und `made_today` < 3:
    - `title` als Hook in GROSSBUCHSTABEN, mit `\\N` für den Umbruch.
    - `fixes` für falsch erkannte Namen.
    - `creator` steht schon drin. Der Name wird 5 s eingeblendet, bei jedem Creator-Wechsel erneut.
+   - **Nur bei Path of Exile (1 oder 2):** `py auto/build_info.py <ordner>` liest den PoB-Link aus der Videobeschreibung (pobb.in, maxroll, pastebin) und schreibt `build.json`.
+     Hat das geklappt, kommt `overlay` als `info` in `short.json`. Das ist eine gelbe Box ab Sekunde 5 für 6 s, z. B. „JUGGERNAUT · STATIC STRIKE / 8.4M DPS · 5.8K LIFE“.
+     Prüfen, ob `skill` zum Video passt. PoB merkt sich manchmal die falsche Hauptgruppe; dann den Text von Hand korrigieren.
+     Steht kein Link in der Beschreibung, aber einer ist im Video zu sehen, kann er als 2. Argument mitgegeben werden. Ohne Build gibt es keine Box (Exit-Code 1 ist dann okay).
+     Für Details zum Build (z. B. „der Trick dabei“) kann der MCP-Server `poe2-optimizer` Gems und Mechaniken erklären, aber nur für PoE 2.
 7. `py make_short.py <ordner>`, dann 2–3 Frames aus `short.mp4` prüfen: Facecam- und Game-Crop, Untertitel, Titel, Creator-Name.
 8. Diese Felder in `meta.json` setzen (`shortqueue.py set` oder direkt editieren):
    - `yt_title` (≤ 70 Zeichen, Englisch, mit Hook).
-   - `description`: 1–2 Sätze, dazu `Source: <source_url>` und `Credit: <creator>`.
+   - `description`: 1–2 Sätze, dazu `Source: <source_url>` und `Credit: <creator>`. Wenn es eine `build.json` gibt, außerdem `Build: <source>`.
    - `tags`: immer #<hashtag> #<Spiel> #Reaction, dazu #Shorts.
    - `status=ready`.
 
